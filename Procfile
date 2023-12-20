@@ -1,2 +1,2 @@
-web: gunicorn engesep.wsgi --log-file -
-worker: celery -A engesep worker --loglevel=info
+web: gunicorn engesep_site.wsgi --log-file -
+worker: celery -A engesep_site worker --loglevel=info
