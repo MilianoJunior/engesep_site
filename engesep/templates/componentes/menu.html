@@ -1,14 +1,13 @@
 {% load static %}
-<header class="flex-container">
-    <div class="flex-container">
-        <img class='logo' src="{% static 'images/logo.png' %}" alt="Flex Logo">
-        <div>
+<header class="header-container">
+    <div class="logo-container">
+        <img class='logo-img' src="{% static 'images/logo.png' %}" alt="Flex Logo">
+        <div class='logo-describe'>
             <h1 class="title">EngeSEP</h1>
             <p class="subtitle">Engenharia Integrada</p>
         </div>
     </div>
-
-    <nav class="navbar">
+    <nav class="navbar-container">
         <ul class="nav-list">
             <li class="nav-item">
                 <a href="#home">Home</a>
@@ -22,9 +21,12 @@
             <li class="nav-item">
                 <a href="#contato">Contato</a>
             </li>
+            <li class="nav-item">
+                <a href="#cliente" class="btn">Cliente</a>
+            </li>
         </ul>
     </nav>
-    <a href="#cliente" ><button class="btn">Login</button></a>
+
 </header>
 <!-- Criar menu responsivo -->
 <!--<div>-->

@@ -1,15 +1,16 @@
 {% load static %}
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'images/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body id="body-container">
         {% include 'componentes/menu.html' %}
-    <main>
+<!--    <main id="main-container">-->
         {% include 'componentes/slider.html' %}
-    </main>
+<!--    </main>-->
+        {% include 'componentes/footer.html' %}
 </body>
-<script src="{% static 'images/scripts.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
 </html>
 <!--<head>-->
 <!--    <meta name="example:title" content="Navbar">-->
