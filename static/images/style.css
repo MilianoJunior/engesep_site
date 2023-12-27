@@ -1,0 +1,78 @@
+.flex-container {
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-around; /* Espaçamento entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    height: 200px; /* Altura do container */
+    border: 1px solid black; /* Borda para visualização */
+}
+
+.navbar {
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-around; /* Espaçamento entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    /*overflow: hidden;*/
+    /*background-color: #333;*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+.nav-list {
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-around; /* Espaçamento entre os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    margin: 10;
+    padding: 10;
+    /*overflow: hidden;*/
+    /*background-color: #333;*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+.nav-item {
+    list-style-type: none;
+    margin: 10;
+    padding: 10;
+    /*overflow: hidden;*/
+    background-color: #333;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+.nav-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 2 sliders */
+.slider {
+    width: 100%;
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa o container */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 400%; /* 4 slides, cada um com 100% */
+}
+
+.slide {
+    width: 25%; /* Cada slide tem 25% da largura total */
+    flex: 0 0 auto;
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilização adicional para visualização */
+.slide {
+    height: 200px;
+    line-height: 200px;
+    font-size: 2em;
+    color: white;
+    background-color: #333;
+}
