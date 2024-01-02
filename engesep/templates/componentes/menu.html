@@ -1,33 +1,103 @@
 {% load static %}
-<header class="header-container">
-    <div class="logo-container">
-        <img class='logo-img' src="{% static 'images/logo.png' %}" alt="Flex Logo">
-        <div class='logo-describe'>
-            <h1 class="title">EngeSEP</h1>
-            <p class="subtitle">Engenharia Integrada</p>
-        </div>
+<div class="logo-container">
+    <img class='logo-img' src="{% static 'assets/logo.png' %}" alt="Flex Logo">
+    <div class='logo-describe'>
+        <h1 class="title">EngeSEP</h1>
+        <p class="subtitle">Engenharia Integrada</p>
     </div>
-    <nav class="navbar-container">
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="#sobre">Sobre</a>
-            </li>
-            <li class="nav-item">
-                <a href="#servicos">Serviços</a>
-            </li>
-            <li class="nav-item">
-                <a href="#contato">Contato</a>
-            </li>
-            <li class="nav-item">
-                <a href="#cliente" class="btn">Cliente</a>
-            </li>
-        </ul>
-    </nav>
-
-</header>
+</div>
+<nav class="navbar-container">
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="#sobre">Sobre</a>
+        </li>
+        <li class="nav-item">
+            <a href="#servicos">Serviços</a>
+        </li>
+        <li class="nav-item">
+            <a href="#contato">Contato</a>
+        </li>
+        <li class="nav-item">
+            <a href="#cliente" class="btn">Cliente</a>
+        </li>
+    </ul>
+</nav>
+<style>
+    .logo-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .logo-img {
+        width: auto;
+        height: auto;
+    }
+    .title {
+        color: var(--Font_White, #ffffff);
+        font-family: Roboto;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 19px; /* 86.364% */
+    }
+    .subtitle {
+        color: var(--Font_White, #FFF);
+        font-family: Roboto;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 19px; /* 237.5% */
+    }
+    .navbar-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .nav-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .nav-item {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .nav-item a {
+        display: flex;
+        color: var(--Font_White, #FFF);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 19px; /* 135.714% */
+        text-align: center;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn {
+        background-color: #333;
+        border: 2px solid #4ac1f7;
+        border-radius: 5px;
+        color: white;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #4ac1f7;
+        color: white;
+    }
+</style>
 <!-- Criar menu responsivo -->
 <!--<div>-->
 <!--    <img class='logo' src="{% static 'images/logo.png' %}" alt="Flex Logo">-->

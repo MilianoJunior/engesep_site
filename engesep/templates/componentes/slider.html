@@ -1,13 +1,253 @@
 {% load static %}
-<main class="main-container">
-    <div class="slider">
-        <div class="slides">
-            <div class="slide" id="slide-1"><img src="{% static 'assets/slide_01.png' %}"></div>
-            <div class="slide" id="slide-2">2</div>
-            <div class="slide" id="slide-3">3</div>
-            <div class="slide" id="slide-4">4</div>
+<div class="slider" style="background-image: url('{% static "assets/background.png" %}');">
+    {% for slide in slides %}
+        <div class="slide" >
+            <img src="{% static 'assets/'|add:slide %}" alt="Imagem da barragem">
+            <div class="texto">
+                <h1><span id="texto-progressivo">O que Oferecemos?</span></h1>
+                <p>Explorando o Mundo da Engenharia Elétrica</p>
+                <p>Bem-vindo ao nosso site dedicado à Engenharia Elétrica, onde a inovação encontra a eletricidade</p>
+                <a href="#">Saiba Mais</a>
+            </div>
         </div>
-        <button class="slide-btn" onclick="moveSlide(-1)">‹</button>
-        <button class="slide-btn" onclick="moveSlide(1)">›</button>
-    </div>
-</main>
+    {% endfor %}
+</div>
+
+<style>
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 716px;
+        overflow: hidden; /* Esconde o conteúdo que passar do tamanho do slider */
+    }
+    .slide {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: none;
+        transition: opacity 1s ease-in-out;
+        /*background-size: contain; !* Faz a imagem de fundo cobrir todo o slide *!*/
+        /*background-position: center; !* Centraliza a imagem de fundo no slide *!*/
+        /*background-repeat: no-repeat; !* Evita que a imagem de fundo se repita *!*/
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .texto {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+        color: #fff; /* Texto branco para contraste */
+        padding: 20px;
+    }
+    .slider img {
+    max-width: 100%;
+    max-height:100%;
+}
+</style>
+
+<script>
+    var slides = document.querySelectorAll('.slide');
+    var currentSlide = 0;
+    slides[currentSlide].className += ' active'; // Mostra o primeiro slide
+
+    function escreverTexto(texto) {
+        var textoConteudo = texto.textContent;
+        texto.textContent = '';
+
+        var i = 0;
+        function escrever() {
+            if (i < textoConteudo.length) {
+                texto.textContent += textoConteudo.charAt(i);
+                i++;
+                setTimeout(escrever, 100); // Ajuste a velocidade de escrita aqui
+            }
+        }
+
+        escrever();
+    }
+
+    var slideInterval = setInterval(nextSlide, 3000);
+
+    function nextSlide() {
+        slides[currentSlide].className = 'slide';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].className += ' active';
+
+        var texto = slides[currentSlide].querySelector('.texto h1 span');
+        escreverTexto(texto);
+    }
+
+    // Aplica o efeito de escrita progressiva ao título do primeiro slide
+    var texto = slides[currentSlide].querySelector('.texto h1 span');
+    escreverTexto(texto);
+    // var slides = document.querySelectorAll('.slide');
+    // var currentSlide = 0;
+    // slides[currentSlide].className += ' active'; // Mostra o primeiro slide
+    //
+    // var slideInterval = setInterval(nextSlide, 3000);
+    //
+    // function nextSlide() {
+    //     slides[currentSlide].className = 'slide';
+    //     currentSlide = (currentSlide + 1) % slides.length;
+    //     slides[currentSlide].className += ' active';
+    // }
+    //
+    // var texto = document.getElementById('texto-progressivo');
+    // var textoConteudo = texto.textContent;
+    // texto.textContent = '';
+    //
+    // var i = 0;
+    // function escreverTexto() {
+    //     if (i < textoConteudo.length) {
+    //         texto.textContent += textoConteudo.charAt(i);
+    //         i++;
+    //         setTimeout(escreverTexto, 100); // Ajuste a velocidade de escrita aqui
+    //     }
+    // }
+    //
+    // escreverTexto();
+</script>
+
+
+
+<!--{% load static %}-->
+<!--{% for slide in slides %}-->
+<!--  <div class="slide">-->
+<!--    <img src="{% static 'assets/' ~ slide %}" alt="Imagem da barragem">-->
+<!--    <div class="texto">-->
+<!--      <h1>O que Oferecemos?</h1>-->
+<!--      <p>Explorando o Mundo da Engenharia Elétrica</p>-->
+<!--      <p>Bem-vindo ao nosso site dedicado à Engenharia Elétrica, onde a inovação encontra a eletricidade</p>-->
+<!--      <a href="#">Saiba Mais</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--{% endfor %}-->
+
+<!--<style>-->
+<!--    .slide {-->
+<!--  width: 100%;-->
+<!--  height: 400px;-->
+<!--  background-color: #fff;-->
+<!--  margin: 0 auto;-->
+<!--}-->
+
+<!--.imagem {-->
+<!--  width: 60%;-->
+<!--  height: 400px;-->
+<!--  float: left;-->
+<!--}-->
+
+<!--.texto {-->
+<!--  width: 40%;-->
+<!--  height: 400px;-->
+<!--  float: right;-->
+<!--  padding: 20px;-->
+<!--}-->
+
+<!--h1 {-->
+<!--  font-size: 30px;-->
+<!--}-->
+
+<!--p {-->
+<!--  font-size: 18px;-->
+<!--}-->
+
+<!--a {-->
+<!--  text-decoration: none;-->
+<!--  color: #000;-->
+<!--}-->
+<!--</style>-->
+<!--<script>-->
+<!--    var slides = document.querySelectorAll('.slide');-->
+<!--    var currentSlide = 0;-->
+<!--    var slideInterval = setInterval(nextSlide, 3000);-->
+
+<!--    function nextSlide() {-->
+<!--        slides[currentSlide].className = 'slide';-->
+<!--        currentSlide = (currentSlide + 1) % slides.length;-->
+<!--        slides[currentSlide].className = 'slide active';-->
+<!--    }-->
+<!--</script>-->
+
+
+
+
+
+
+
+
+<!--{% load static %}-->
+<!--<div class="slider">-->
+<!--    <div class="slide active">-->
+<!--        <img src="{% static 'assets/slide_01.png' %}" alt="Image 1">-->
+<!--    </div>-->
+<!--    <div class="slide">-->
+<!--        <img src="{% static 'assets/slide_02.png' %}" alt="Image 1">-->
+<!--    </div>-->
+<!--    <div class="slide">-->
+<!--        <img src="{% static 'assets/slide_03.png' %}" alt="Image 1">-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    var slides = document.querySelectorAll('.slide');-->
+<!--    var currentSlide = 0;-->
+<!--    var slideInterval = setInterval(nextSlide, 3000);-->
+
+<!--    function nextSlide() {-->
+<!--        slides[currentSlide].className = 'slide';-->
+<!--        currentSlide = (currentSlide + 1) % slides.length;-->
+<!--        slides[currentSlide].className = 'slide active';-->
+<!--    }-->
+<!--</script>-->
+<!--<style>-->
+<!--    .slider {-->
+<!--        width: 100%;-->
+<!--        position: relative;-->
+<!--        top: 0;-->
+<!--        margin: auto;-->
+<!--    }-->
+
+<!--    .slide {-->
+<!--        display: none;-->
+<!--        position: absolute;-->
+<!--        width: 100%;-->
+<!--    }-->
+
+<!--    .slide.active {-->
+<!--        display: block;-->
+<!--    }-->
+<!--</style>-->
+
+<!--{% load static %}-->
+<!--    <div class="conteudo">-->
+<!--        <div class="carrousel">-->
+<!--            <article class="card">-->
+<!--                <h1> card 1</h1>-->
+<!--            </article>-->
+<!--            <article class="card">-->
+<!--                <h1> card 2</h1>-->
+<!--            </article>-->
+<!--            <article class="card">-->
+<!--                <h1> card 3</h1>-->
+<!--            </article>-->
+<!--            <article class="card">-->
+<!--                <h1> card 4</h1>-->
+<!--            </article>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="slider">-->
+<!--        <div class="slides">-->
+<!--            <div class="slide" id="slide-1"><img src="{% static 'assets/slide_01.png' %}"></div>-->
+<!--            <div class="slide" id="slide-2">2</div>-->
+<!--            <div class="slide" id="slide-3">3</div>-->
+<!--            <div class="slide" id="slide-4">4</div>-->
+<!--        </div>-->
+<!--        <button class="slide-btn" onclick="moveSlide(-1)">‹</button>-->
+<!--        <button class="slide-btn" onclick="moveSlide(1)">›</button>-->
+<!--    </div>-->
